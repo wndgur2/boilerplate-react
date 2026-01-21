@@ -18,6 +18,7 @@ user/
 ## What are Entities?
 
 Entities represent core business concepts and domain models that are:
+
 - **Reusable** across multiple features and pages
 - **Domain-focused** (User, Product, Order, etc.)
 - **Independent** of specific features or pages
@@ -33,6 +34,7 @@ Entities represent core business concepts and domain models that are:
 3. Export public API through `index.ts`
 
 Example:
+
 ```typescript
 // entities/product/index.ts
 export type { Product } from './model/types';

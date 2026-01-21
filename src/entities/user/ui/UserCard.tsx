@@ -16,16 +16,16 @@ export const UserCard = ({ user }: UserCardProps) => {
   };
 
   return (
-    <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+    <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
       <div className="flex items-center gap-3">
         {user.avatar ? (
           <img
             src={user.avatar}
             alt={user.name}
-            className="w-12 h-12 rounded-full"
+            className="h-12 w-12 rounded-full"
           />
         ) : (
-          <div className="w-12 h-12 rounded-full bg-indigo-500 flex items-center justify-center text-white font-semibold">
+          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-indigo-500 font-semibold text-white">
             {user.name.charAt(0).toUpperCase()}
           </div>
         )}
@@ -34,7 +34,7 @@ export const UserCard = ({ user }: UserCardProps) => {
           <p className="text-sm text-gray-600">{user.email}</p>
         </div>
         <span
-          className={`px-2 py-1 rounded text-xs font-medium ${roleColors[user.role]}`}
+          className={`rounded px-2 py-1 text-xs font-medium ${roleColors[user.role]}`}
         >
           {user.role}
         </span>
