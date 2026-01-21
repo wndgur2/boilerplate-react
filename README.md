@@ -12,6 +12,7 @@ A modern React boilerplate with TypeScript, featuring a clean architecture follo
 - **[TanStack React Query](https://tanstack.com/query)** - Data fetching and state management
 - **[Axios](https://axios-http.com/)** - HTTP client for API requests
 - **[react-i18next](https://react.i18next.com/)** - Internationalization framework
+- **[vite-plugin-mock-dev-server](https://vite-plugin-mock-dev-server.netlify.app/)** - Mock API server for development
 - **[Prettier](https://prettier.io/)** - Code formatter
 
 ## 📁 Project Structure
@@ -22,22 +23,30 @@ This project follows **[Feature Sliced Design](https://feature-sliced.design/)**
 src/
 ├── app/                 # Application-wide setup
 │   ├── providers/       # Context providers (Query, Router)
+│   ├── routes/          # Routing configuration
 │   ├── styles/          # Global styles
 │   └── App.tsx          # Root component
 ├── pages/               # Page components
-│   └── HomePage.tsx     # Home page example
+│   ├── HomePage.tsx     # Home page example
+│   └── PostsPage.tsx    # Posts management page (CRUD example)
 ├── features/            # Feature-specific modules
-│   └── counter/         # Example counter feature
+│   ├── counter/         # Example counter feature
+│   └── posts/           # Posts management feature (CRUD example)
 │       ├── model/       # Business logic (hooks)
 │       ├── ui/          # UI components
 │       └── index.ts     # Public API
 ├── entities/            # Business entities
+│   ├── user/            # User entity
+│   └── post/            # Post entity
 └── shared/              # Shared resources
     ├── ui/              # Shared UI components
-    ├── api/             # Axios API client
+    ├── api/             # Axios API client & API services
     ├── lib/             # Utility functions
     └── config/          # Configuration (i18n, locales)
         └── locales/     # Translation files (en.json, ko.json)
+
+mock/                    # Mock API definitions
+└── posts.mock.ts        # Posts CRUD mock endpoints
 ```
 
 ## ⚙️ Path Alias
@@ -127,6 +136,47 @@ The API client includes:
 - Request/response interceptors for auth tokens and error handling
 - Methods: `get`, `post`, `put`, `patch`, `delete`
 - Default timeout and base URL configuration
+
+## 🎭 Mock API Server
+
+This boilerplate includes a mock API server powered by `vite-plugin-mock-dev-server` for development. The mock server allows you to develop and test your frontend without needing a real backend.
+
+### Features
+
+- **No Backend Required**: Develop your frontend independently
+- **Hot Module Replacement**: Mock data updates instantly during development
+- **CRUD Operations**: Full Create, Read, Update, Delete examples
+- **TypeScript Support**: Type-safe mock definitions
+
+### Example: Posts CRUD API
+
+The project includes a complete CRUD example with Posts:
+
+- `GET /api/posts` - Get all posts
+- `GET /api/posts/:id` - Get a single post
+- `POST /api/posts` - Create a new post
+- `PUT /api/posts/:id` - Update a post
+- `DELETE /api/posts/:id` - Delete a post
+
+Visit the **Posts Management** page (accessible from the home page) to see the CRUD operations in action.
+
+### Creating Mock Endpoints
+
+Mock API endpoints are defined in the `mock/` directory. Here's a simple example:
+
+```typescript
+import { defineMock } from 'vite-plugin-mock-dev-server';
+
+export default defineMock([
+  {
+    url: '/api/example',
+    method: 'GET',
+    body: { message: 'Hello from mock API!' },
+  },
+]);
+```
+
+For more information, see the [vite-plugin-mock-dev-server documentation](https://vite-plugin-mock-dev-server.netlify.app/).
 
 ## 📝 License
 

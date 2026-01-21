@@ -1,11 +1,14 @@
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
+import { ROUTES } from '@/app/routes/routes';
 import { User, UserCard } from '@/entities/user';
 import { Counter } from '@/features/counter';
 import { Button } from '@/shared/ui';
 
 export const HomePage = () => {
   const { t, i18n } = useTranslation();
+  const navigate = useNavigate();
 
   const toggleLanguage = () => {
     i18n.changeLanguage(i18n.language === 'en' ? 'ko' : 'en');
@@ -40,6 +43,7 @@ export const HomePage = () => {
               <li>TanStack React Query - Data fetching and caching</li>
               <li>react-i18next - Internationalization</li>
               <li>TypeScript - Type safety</li>
+              <li>vite-plugin-mock-dev-server - Mock API server</li>
             </ul>
           </div>
 
@@ -61,6 +65,23 @@ export const HomePage = () => {
           </div>
 
           <Counter />
+
+          <div className="rounded-lg bg-purple-50 p-4">
+            <h2 className="mb-2 text-xl font-semibold text-purple-900">
+              Mock API Example
+            </h2>
+            <p className="mb-3 text-purple-800">
+              Try out the CRUD operations with a mock API server powered by
+              vite-plugin-mock-dev-server
+            </p>
+            <Button
+              onClick={() => navigate(ROUTES.POSTS)}
+              variant="primary"
+              className="w-full"
+            >
+              View Posts Manager →
+            </Button>
+          </div>
 
           <Button
             onClick={toggleLanguage}
