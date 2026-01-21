@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 
+import { User, UserCard } from '@/entities/user';
 import { Counter } from '@/features/counter';
 import { Button } from '@/shared/ui';
-import { UserCard, User } from '@/entities/user';
 
 export const HomePage = () => {
   const { t, i18n } = useTranslation();
