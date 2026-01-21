@@ -53,28 +53,32 @@ import { Button } from '@/shared/ui/Button';
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - npm or yarn
 
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/wndgur2/boilerplate-react.git
 cd boilerplate-react
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Copy environment variables:
+
 ```bash
 cp .env.example .env
 ```
 
 4. Start development server:
+
 ```bash
 npm run dev
 ```
@@ -93,6 +97,7 @@ The application will be available at `http://localhost:5173`
 The boilerplate includes i18n support with English and Korean translations. Toggle between languages using the button on the home page.
 
 Translation files are organized by language in `src/shared/config/locales/`:
+
 - `en.json` - English translations
 - `ko.json` - Korean translations
 
@@ -108,15 +113,17 @@ An Axios-based API client is provided in `src/shared/api/client.ts` with configu
 
 ```typescript
 import { useQuery } from '@tanstack/react-query';
+
 import { apiClient } from '@/shared/api';
 
 const { data } = useQuery({
   queryKey: ['example'],
-  queryFn: () => apiClient.get('/endpoint')
+  queryFn: () => apiClient.get('/endpoint'),
 });
 ```
 
 The API client includes:
+
 - Request/response interceptors for auth tokens and error handling
 - Methods: `get`, `post`, `put`, `patch`, `delete`
 - Default timeout and base URL configuration

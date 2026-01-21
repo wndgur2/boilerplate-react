@@ -9,14 +9,14 @@ export const Counter = () => {
   const { count, increment, decrement, reset } = useCounter(0);
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md">
-      <h3 className="text-xl font-semibold text-gray-800 mb-4">
+    <div className="rounded-lg bg-white p-6 shadow-md">
+      <h3 className="mb-4 text-xl font-semibold text-gray-800">
         Counter Example
       </h3>
-      <div className="text-center mb-4">
+      <div className="mb-4 text-center">
         <span className="text-5xl font-bold text-indigo-600">{count}</span>
       </div>
-      <div className="flex gap-2 justify-center">
+      <div className="flex justify-center gap-2">
         <Button onClick={decrement} variant="secondary" size="sm">
           -
         </Button>

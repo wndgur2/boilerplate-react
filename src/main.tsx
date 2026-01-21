@@ -1,8 +1,10 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
-import { router } from './app/router';
+
 import { QueryProvider } from './app/providers';
+import { router } from './app/router';
+
 import './app/styles/index.css';
 import './shared/config/i18n';
 

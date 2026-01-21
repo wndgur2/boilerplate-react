@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
-import { Button } from '@/shared/ui';
+
 import { Counter } from '@/features/counter';
+import { Button } from '@/shared/ui';
 
 export const HomePage = () => {
   const { t, i18n } = useTranslation();
@@ -10,19 +11,19 @@ export const HomePage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
-      <div className="max-w-2xl w-full bg-white rounded-2xl shadow-xl p-8">
-        <h1 className="text-4xl font-bold text-gray-800 mb-4">
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
+      <div className="w-full max-w-2xl rounded-2xl bg-white p-8 shadow-xl">
+        <h1 className="mb-4 text-4xl font-bold text-gray-800">
           {t('welcome')}
         </h1>
-        <p className="text-lg text-gray-600 mb-6">{t('description')}</p>
+        <p className="mb-6 text-lg text-gray-600">{t('description')}</p>
 
         <div className="space-y-4">
-          <div className="bg-blue-50 p-4 rounded-lg">
-            <h2 className="text-xl font-semibold text-blue-900 mb-2">
+          <div className="rounded-lg bg-blue-50 p-4">
+            <h2 className="mb-2 text-xl font-semibold text-blue-900">
               Technologies
             </h2>
-            <ul className="list-disc list-inside text-blue-800 space-y-1">
+            <ul className="list-inside list-disc space-y-1 text-blue-800">
               <li>Vite - Fast build tool</li>
               <li>Tailwind CSS - Utility-first CSS framework</li>
               <li>React Router - Client-side routing</li>
@@ -32,8 +33,8 @@ export const HomePage = () => {
             </ul>
           </div>
 
-          <div className="bg-indigo-50 p-4 rounded-lg">
-            <h2 className="text-xl font-semibold text-indigo-900 mb-2">
+          <div className="rounded-lg bg-indigo-50 p-4">
+            <h2 className="mb-2 text-xl font-semibold text-indigo-900">
               Architecture
             </h2>
             <p className="text-indigo-800">
