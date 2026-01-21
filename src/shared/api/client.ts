@@ -29,6 +29,7 @@ axiosInstance.interceptors.response.use(
   response => response,
   error => {
     // Handle common errors (401, 403, 500, etc.)
+    // TODO: Replace console.error with proper error logging service in production
     if (error.response) {
       console.error('API Error:', error.response.data);
     }
