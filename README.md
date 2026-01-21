@@ -10,6 +10,7 @@ A modern React boilerplate with TypeScript, featuring a clean architecture follo
 - **[Tailwind CSS](https://tailwindcss.com/)** - Utility-first CSS framework with `@tailwindcss/vite`
 - **[React Router](https://reactrouter.com/)** - Client-side routing
 - **[TanStack React Query](https://tanstack.com/query)** - Data fetching and state management
+- **[Axios](https://axios-http.com/)** - HTTP client for API requests
 - **[react-i18next](https://react.i18next.com/)** - Internationalization framework
 - **[Prettier](https://prettier.io/)** - Code formatter
 
@@ -26,12 +27,17 @@ src/
 ├── pages/               # Page components
 │   └── HomePage.tsx     # Home page example
 ├── features/            # Feature-specific modules
+│   └── counter/         # Example counter feature
+│       ├── model/       # Business logic (hooks)
+│       ├── ui/          # UI components
+│       └── index.ts     # Public API
 ├── entities/            # Business entities
 └── shared/              # Shared resources
     ├── ui/              # Shared UI components
-    ├── api/             # API client utilities
+    ├── api/             # Axios API client
     ├── lib/             # Utility functions
-    └── config/          # Configuration files (i18n, etc.)
+    └── config/          # Configuration (i18n, locales)
+        └── locales/     # Translation files (en.json, ko.json)
 ```
 
 ## ⚙️ Path Alias
@@ -86,7 +92,11 @@ The application will be available at `http://localhost:5173`
 
 The boilerplate includes i18n support with English and Korean translations. Toggle between languages using the button on the home page.
 
-Add new translations in `src/shared/config/i18n.ts`.
+Translation files are organized by language in `src/shared/config/locales/`:
+- `en.json` - English translations
+- `ko.json` - Korean translations
+
+Add new translations by creating new JSON files in the locales directory and importing them in `src/shared/config/i18n.ts`.
 
 ## 🎨 Styling
 
@@ -94,7 +104,7 @@ This project uses Tailwind CSS v4 with the Vite plugin. The configuration is aut
 
 ## 📦 API Client
 
-An example API client is provided in `src/shared/api/client.ts` with methods for GET, POST, PUT, and DELETE requests. Use it with React Query for data fetching:
+An Axios-based API client is provided in `src/shared/api/client.ts` with configured interceptors for requests and responses. Use it with React Query for data fetching:
 
 ```typescript
 import { useQuery } from '@tanstack/react-query';
@@ -105,6 +115,11 @@ const { data } = useQuery({
   queryFn: () => apiClient.get('/endpoint')
 });
 ```
+
+The API client includes:
+- Request/response interceptors for auth tokens and error handling
+- Methods: `get`, `post`, `put`, `patch`, `delete`
+- Default timeout and base URL configuration
 
 ## 📝 License
 

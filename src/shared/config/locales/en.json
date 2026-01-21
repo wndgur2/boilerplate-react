@@ -1,0 +1,4 @@
+{
+  "welcome": "Welcome to React with TypeScript",
+  "description": "This is a boilerplate with Vite, Tailwind CSS, React Router, React Query, and i18n"
+}

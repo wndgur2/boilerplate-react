@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/shared/ui';
+import { Counter } from '@/features/counter';
 
 export const HomePage = () => {
   const { t, i18n } = useTranslation();
@@ -40,6 +41,8 @@ export const HomePage = () => {
               better scalability and maintainability.
             </p>
           </div>
+
+          <Counter />
 
           <Button
             onClick={toggleLanguage}

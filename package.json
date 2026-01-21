@@ -9,11 +9,18 @@
     "preview": "vite preview",
     "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,css,md}\""
   },
-  "keywords": ["react", "typescript", "vite", "tailwind", "boilerplate"],
+  "keywords": [
+    "react",
+    "typescript",
+    "vite",
+    "tailwind",
+    "boilerplate"
+  ],
   "author": "",
   "license": "MIT",
   "dependencies": {
     "@tanstack/react-query": "^5.90.19",
+    "axios": "^1.13.2",
     "i18next": "^25.8.0",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
