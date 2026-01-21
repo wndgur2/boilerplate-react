@@ -2,12 +2,22 @@ import { useTranslation } from 'react-i18next';
 
 import { Counter } from '@/features/counter';
 import { Button } from '@/shared/ui';
+import { UserCard, User } from '@/entities/user';
 
 export const HomePage = () => {
   const { t, i18n } = useTranslation();
 
   const toggleLanguage = () => {
     i18n.changeLanguage(i18n.language === 'en' ? 'ko' : 'en');
+  };
+
+  // Example user entity data
+  const exampleUser: User = {
+    id: '1',
+    name: 'John Doe',
+    email: 'john.doe@example.com',
+    role: 'admin',
+    createdAt: new Date('2024-01-01'),
   };
 
   return (
@@ -41,6 +51,13 @@ export const HomePage = () => {
               This project follows Feature Sliced Design (FSD) architecture for
               better scalability and maintainability.
             </p>
+          </div>
+
+          <div className="rounded-lg bg-green-50 p-4">
+            <h2 className="mb-3 text-xl font-semibold text-green-900">
+              User Entity Example
+            </h2>
+            <UserCard user={exampleUser} />
           </div>
 
           <Counter />
