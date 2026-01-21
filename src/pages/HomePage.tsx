@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { Button } from '@/shared/ui';
 
 export const HomePage = () => {
   const { t, i18n } = useTranslation();
@@ -40,12 +41,14 @@ export const HomePage = () => {
             </p>
           </div>
 
-          <button
+          <Button
             onClick={toggleLanguage}
-            className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 shadow-md hover:shadow-lg"
+            variant="primary"
+            size="lg"
+            className="w-full shadow-md hover:shadow-lg"
           >
             Switch Language ({i18n.language === 'en' ? 'Korean' : 'English'})
-          </button>
+          </Button>
         </div>
       </div>
     </div>
